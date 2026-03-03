@@ -50,8 +50,8 @@ export const resumeData: ResumeData = {
     'Data Analyst with 6+ years of experience transforming regulated enterprise data in healthcare and financial services into executive-ready decisions. Combines SQL, Python, experimentation, BI, and cloud data engineering to improve growth, risk outcomes, and operational performance across cross-functional teams.',
   contact: {
     email: 'karthikkandhipati05@gmail.com',
-    linkedin: 'https://www.linkedin.com',
-    github: 'https://github.com',
+    linkedin: '',
+    github: '',
     phone: '682-360-5220',
     location: 'Arlington, Texas, USA'
   },

@@ -22,6 +22,18 @@ Production-ready personal portfolio for a Data Scientist / Product Analytics pro
    npm run build
    ```
 
+## If `npm install` fails with `403 Forbidden`
+This is usually an environment policy/proxy issue rather than a project code issue.
+
+Try:
+```bash
+unset HTTP_PROXY HTTPS_PROXY http_proxy https_proxy
+npm config set registry https://registry.npmjs.org/
+npm install
+```
+
+If your company network blocks npm, run the install/build in GitHub Actions or a local network that allows `registry.npmjs.org`.
+
 ## Resume Upload Instructions
 Place your latest PDF at:
 - `public/Karthik_Kandhipati_Resume.pdf`
@@ -42,4 +54,7 @@ This repo uses static export and GitHub Pages deployment.
 3. Static site is published from the generated `out/` directory.
 
 ## Base Path
-`next.config.mjs` automatically enables basePath and assetPrefix for GitHub Actions so links and assets resolve correctly on GitHub Pages.
+The project reads `NEXT_PUBLIC_BASE_PATH` for GitHub Pages compatibility.
+
+- Local dev: leave it empty.
+- GitHub Pages: set to `/Karthik-Portfolio`.
