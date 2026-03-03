@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://karthikkandhipati.github.io/Karthik-Portfolio/sitemap.xml
