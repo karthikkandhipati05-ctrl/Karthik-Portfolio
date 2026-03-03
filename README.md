@@ -65,6 +65,7 @@ If the deploy step fails with `Failed to create deployment (status: 404)`:
 
 1. Go to **Settings → Pages** in your repo.
 2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-3. Re-run the workflow.
+3. Confirm the workflow uses `actions/configure-pages@v5` with `enablement: true` (already configured in this repo).
+4. Re-run the workflow.
 
 This error is repository configuration-related (Pages not enabled for Actions yet), not a Next.js build issue.
