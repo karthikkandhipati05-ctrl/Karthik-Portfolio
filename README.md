@@ -58,3 +58,13 @@ The project reads `NEXT_PUBLIC_BASE_PATH` for GitHub Pages compatibility.
 
 - Local dev: leave it empty.
 - GitHub Pages: set to `/Karthik-Portfolio`.
+
+
+## GitHub Pages 404 (deploy-pages) Fix
+If the deploy step fails with `Failed to create deployment (status: 404)`:
+
+1. Go to **Settings → Pages** in your repo.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. Re-run the workflow.
+
+This error is repository configuration-related (Pages not enabled for Actions yet), not a Next.js build issue.
