@@ -47,11 +47,14 @@ All website content is generated from:
 Update this file to refresh profile details, case studies, metrics, skills, and education.
 
 ## GitHub Deployment
-This repo uses static export and GitHub Pages deployment.
+This repo deploys the static export to the `gh-pages` branch via GitHub Actions.
 
 1. Push to `main` branch.
-2. GitHub Actions runs `.github/workflows/deploy.yml`.
-3. Static site is published from the generated `out/` directory.
+2. The workflow `.github/workflows/deploy.yml` runs `npm install` + `npm run build`.
+3. The generated `out/` folder is published to `gh-pages` using `peaceiris/actions-gh-pages`.
+4. In **Settings → Pages**, set source to **Deploy from a branch** and choose `gh-pages` / `/ (root)`.
+
+If Pages is disabled by org policy, an admin must enable Pages for the repository first.
 
 ## Base Path
 The project reads `NEXT_PUBLIC_BASE_PATH` for GitHub Pages compatibility.
@@ -60,12 +63,9 @@ The project reads `NEXT_PUBLIC_BASE_PATH` for GitHub Pages compatibility.
 - GitHub Pages: set to `/Karthik-Portfolio`.
 
 
-## GitHub Pages 404 (deploy-pages) Fix
-If the deploy step fails with `Failed to create deployment (status: 404)`:
+## GitHub Pages Troubleshooting
+If deployment fails due to permissions:
 
-1. Go to **Settings → Pages** in your repo.
-2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-3. Confirm the workflow uses `actions/configure-pages@v5` with `enablement: true` (already configured in this repo).
-4. Re-run the workflow.
-
-This error is repository configuration-related (Pages not enabled for Actions yet), not a Next.js build issue.
+1. Confirm workflow permission **Read and write permissions** is enabled in repo settings.
+2. Confirm repository/org policy allows GitHub Pages.
+3. Confirm **Settings → Pages** is configured to serve from `gh-pages` branch.
